@@ -1,10 +1,10 @@
 const gulp = require('gulp');
-const gulpWatch = require('gulp-watch');
+// const gulpWatch = require('gulp-watch');
 const del = require('del');
 const merge = require('merge2');
 const concat = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
-const argv = process.argv;
+// const argv = process.argv;
 
 // compilation
 const ts = require('gulp-typescript');
@@ -15,7 +15,7 @@ const browserify = require("browserify");
 const source = require('vinyl-source-stream');
 const tsify = require("tsify");
 
-const isRelease = argv.indexOf('--release') > -1;
+// const isRelease = argv.indexOf('--release') > -1;
 
 /**
  * Ionic Gulp tasks, for more information on each see
@@ -27,7 +27,7 @@ const isRelease = argv.indexOf('--release') > -1;
  */
 const tslint = require('ionic-gulp-tslint');
 
-gulp.task('bundle', ['clean', 'build'], function() {
+gulp.task('bundle', ['clean', 'build'], function () {
   return browserify({
     basedir: '.',
     debug: true,
@@ -46,11 +46,11 @@ gulp.task('bundle', ['clean', 'build'], function() {
 
 gulp.task('lint', function() {
   return tslint({
-    src: 'src/**/*.ts',
+    src: 'src/**/*.ts'
   });
 });
 
-gulp.task('clean', function(){
+gulp.task('clean', function (){
   return del('build');
 });
 
