@@ -1,0 +1,26 @@
+{
+  "name": "ionic-alfresco",
+  "version": "0.1.0",
+  "description": "Alfresco ADF for Ionic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DenisVuyka/ionic-alfresco.git"
+  },
+  "keywords": [
+    "alfresco",
+    "ionic",
+    "mobile",
+    "ios",
+    "android"
+  ],
+  "author": "Denys Vuika <denys.vuika@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DenisVuyka/ionic-alfresco/issues"
+  },
+  "homepage": "https://github.com/DenisVuyka/ionic-alfresco#readme"
+}
