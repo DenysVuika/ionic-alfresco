@@ -2,9 +2,13 @@
   "name": "ionic-alfresco",
   "version": "0.1.0",
   "description": "Alfresco ADF for Ionic",
-  "main": "index.js",
+  "main": "build/js/alfresco.ionic.js",
+  "typings": "build/typings/alfresco.ionic.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "typings install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "typings": "typings"
   },
   "repository": {
     "type": "git",
@@ -22,5 +26,37 @@
   "bugs": {
     "url": "https://github.com/DenisVuyka/ionic-alfresco/issues"
   },
-  "homepage": "https://github.com/DenisVuyka/ionic-alfresco#readme"
+  "homepage": "https://github.com/DenisVuyka/ionic-alfresco#readme",
+  "dependencies": {
+    "@angular/common": "2.0.0-rc.4",
+    "@angular/compiler": "2.0.0-rc.4",
+    "@angular/core": "2.0.0-rc.4",
+    "@angular/forms": "0.2.0",
+    "@angular/http": "2.0.0-rc.4",
+    "@angular/platform-browser": "2.0.0-rc.4",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.4",
+    "alfresco-js-api": "^0.3.0",
+    "es6-shim": "0.35.1",
+    "ionic-angular": "2.0.0-beta.11",
+    "ionic-native": "1.3.10",
+    "ionicons": "3.0.0",
+    "reflect-metadata": "0.1.8",
+    "rxjs": "5.0.0-beta.6",
+    "zone.js": "0.6.12"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "del": "2.2.0",
+    "gulp": "3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.13.6",
+    "gulp-watch": "4.3.5",
+    "ionic-gulp-tslint": "^1.0.0",
+    "merge2": "^1.0.2",
+    "tsify": "^1.0.3",
+    "tslint-ionic-rules": "0.0.4",
+    "typings": "^1.3.2",
+    "vinyl-source-stream": "^1.1.0"
+  }
 }

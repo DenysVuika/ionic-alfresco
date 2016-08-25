@@ -3,10 +3,13 @@
     "target": "es5",
     "module": "commonjs",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "moduleResolution":"node",
+    "sourceMap": true,
+    "declaration": true
   },
   "filesGlob": [
-    "**/*.ts",
+    "src/**/*.ts",
     "!node_modules/**/*",
     "node_modules/alfresco-js-api/dist/alfresco-js-api.d.ts"
   ],
