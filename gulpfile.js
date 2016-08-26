@@ -2,18 +2,13 @@ const gulp = require('gulp');
 // const gulpWatch = require('gulp-watch');
 const del = require('del');
 const merge = require('merge2');
-const concat = require('gulp-concat');
+// const concat = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 // const argv = process.argv;
 
 // compilation
 const ts = require('gulp-typescript');
 const tsProject = ts.createProject('tsconfig.json', { sortOutput: true });
-
-// bundling
-const browserify = require("browserify");
-const source = require('vinyl-source-stream');
-const tsify = require("tsify");
 
 // const isRelease = argv.indexOf('--release') > -1;
 
@@ -26,23 +21,6 @@ const tsify = require("tsify");
  * build however you see fit.
  */
 const tslint = require('ionic-gulp-tslint');
-
-gulp.task('bundle', ['clean', 'build'], function () {
-  return browserify({
-    basedir: '.',
-    debug: true,
-    entries: [
-      'src/alfresco.ionic.ts',
-      './typings/index.d.ts'
-    ],
-    cache: {},
-    packageCache: {}
-  })
-  .plugin(tsify)
-  .bundle()
-  .pipe(source('alfresco.ionic.bundle.js'))
-  .pipe(gulp.dest('build/bundles'));
-});
 
 gulp.task('lint', function() {
   return tslint({
@@ -61,12 +39,12 @@ gulp.task('build', ['clean'], function () {
 
   return merge([
     tsResult.dts
-      .pipe(gulp.dest('build/typings')),
+      .pipe(gulp.dest('build')),
 
     tsResult.js
-      .pipe(concat('alfresco.ionic.js'))
+      //.pipe(concat('alfresco.ionic.js'))
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest('build/js'))
+      .pipe(gulp.dest('build'))
   ]);
 });
 

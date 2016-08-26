@@ -10,10 +10,12 @@
   },
   "filesGlob": [
     "src/**/*.ts",
+    "!build/**/*",
     "!node_modules/**/*",
     "node_modules/alfresco-js-api/dist/alfresco-js-api.d.ts"
   ],
   "exclude": [
+    "build",
     "node_modules",
     "typings/global",
     "typings/global.d.ts"
