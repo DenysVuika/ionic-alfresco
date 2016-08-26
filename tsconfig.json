@@ -12,7 +12,8 @@
     "src/**/*.ts",
     "!build/**/*",
     "!node_modules/**/*",
-    "node_modules/alfresco-js-api/dist/alfresco-js-api.d.ts"
+    "typings/index.d.ts",
+    "node_modules/alfresco-js-api/dist/**/*.ts"
   ],
   "exclude": [
     "build",
