@@ -7,5 +7,11 @@
   },
   "parserOptions": {
     "ecmaVersion": 6
+  },
+  "rules": {
+    "space-before-function-paren": ["error", "never"],
+    "no-multi-spaces": "error",
+    "space-before-blocks": "error",
+    "indent": ["error", 2]
   }
 }

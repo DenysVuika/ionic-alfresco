@@ -18,11 +18,11 @@ gulp.task('lint', function() {
     .pipe(tslint.report());
 });
 
-gulp.task('clean', function (){
+gulp.task('clean', function() {
   return del('build');
 });
 
-gulp.task('build', ['clean', 'lint'], function () {
+gulp.task('build', ['lint', 'clean'], function() {
   let tsResult = tsProject.src()
     .pipe(sourcemaps.init())
     .pipe(ts(tsProject));

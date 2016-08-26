@@ -35,6 +35,7 @@
       "trace"
     ],
     "no-construct": true,
+    "no-consecutive-blank-lines": true,
     "no-debugger": true,
     "no-duplicate-key": true,
     "no-duplicate-variable": true,
