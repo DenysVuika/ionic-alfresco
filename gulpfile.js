@@ -32,7 +32,7 @@ gulp.task('bundle', ['clean', 'build'], function () {
     basedir: '.',
     debug: true,
     entries: [
-      'src/index.ts',
+      'src/alfresco.ionic.ts',
       './typings/index.d.ts'
     ],
     cache: {},
