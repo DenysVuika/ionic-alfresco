@@ -1,7 +1,7 @@
 {
   "name": "ionic-alfresco",
   "version": "0.1.0",
-  "description": "Alfresco ADF for Ionic",
+  "description": "Alfresco ADF bindings for Ionic 2 and Angular 2",
   "main": "build/alfresco.ionic.js",
   "typings": "build/alfresco.ionic.d.ts",
   "scripts": {
@@ -20,7 +20,8 @@
     "ionic",
     "mobile",
     "ios",
-    "android"
+    "android",
+    "angular"
   ],
   "author": "Denys Vuika <denys.vuika@gmail.com>",
   "license": "MIT",
