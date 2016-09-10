@@ -101,11 +101,11 @@ export class FileView {
 
 <img src="assets/images/folder-view.png" width="300px">
 
-## Sliding menus
+### Sliding menus
 
 <img src="assets/images/folder-view-sliding.png" width="300px">
 
-## Content actions
+### Content actions
 
 <img src="assets/images/folder-view-actions.png" width="300px">
 
