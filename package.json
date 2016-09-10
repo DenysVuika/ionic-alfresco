@@ -1,6 +1,6 @@
 {
   "name": "ionic-alfresco",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Alfresco ADF bindings for Ionic 2 and Angular 2",
   "main": "build/alfresco.ionic.js",
   "typings": "build/alfresco.ionic.d.ts",
