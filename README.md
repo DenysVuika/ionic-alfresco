@@ -6,8 +6,8 @@ Alfresco ADF bindings for Ionic 2 and Angular 2
 
 `ionic-alfresco` relies on the following:
 
-- [alfresco-js-api](https://www.npmjs.com/package/alfresco-js-api) library v0.3.0 or later;
-- `ionic 2` project configured with [SystemJS](https://github.com/systemjs/systemjs) module loader;
+- [alfresco-js-api](https://www.npmjs.com/package/alfresco-js-api) library v0.3.1 or later;
+- [Ionic 2](http://ionicframework.com) project configured with [SystemJS](https://github.com/systemjs/systemjs) module loader;
 
 # Installing
 
