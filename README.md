@@ -6,8 +6,8 @@ Alfresco ADF bindings for Ionic 2 and Angular 2
 
 `ionic-alfresco` relies on the following:
 
-- [alfresco-js-api](https://www.npmjs.com/package/alfresco-js-api) library v0.3.0 or later;
-- `ionic 2` project configured with [SystemJS](https://github.com/systemjs/systemjs) module loader;
+- [alfresco-js-api](https://www.npmjs.com/package/alfresco-js-api) library v0.3.1 or later;
+- [Ionic 2](http://ionicframework.com) project configured with [SystemJS](https://github.com/systemjs/systemjs) module loader;
 
 # Installing
 
@@ -56,6 +56,12 @@ export class FileView {
 
 # Package content
 
+## Components
+
+- **LoginComponent**, login component
+- **FolderViewComponent**, folder viewer component (Document List)
+- **FileViewComponent**, file viewer component
+
 ## Services
 
 - **ApiService**, *provides access to Alfresco JS Api instance*
@@ -63,11 +69,53 @@ export class FileView {
 - **NodeService**, *ECM node management service*
 - **SettingsService**, *provides access to global settings*
 
-## Components
-
-- **FileViewComponent**, file viewer component
-
 ## Constants
 
 - **ALFRESCO_IONIC_PROVIDERS**, *exports all `ionic-alfresco` services*
 - **ALFRESCO_IONIC_DIRECTIVES**, *exports all `ionic-alfresco` components and directives*
+
+# API
+
+## Login
+
+```html
+<alf-login
+  [username]="username"
+  [password]="password"
+  (success)="onLoggedIn($event)"
+  (failure)="onLoginError($event)">
+</alf-login>
+```
+
+<img src="assets/images/login.png" width="300px">
+
+## Folder View
+
+```html
+<alf-folder-view
+  [folderId]="folderId"
+  (nodeTapped)="nodeTapped($event)"
+  (error)="onError($event)">
+</alf-folder-view>
+```
+
+<img src="assets/images/folder-view.png" width="300px">
+
+### Sliding menus
+
+<img src="assets/images/folder-view-sliding.png" width="300px">
+
+### Content actions
+
+<img src="assets/images/folder-view-actions.png" width="300px">
+
+## File View
+
+```html
+<alf-file-view
+  [nodeId]="nodeId"
+  [debug]="true">
+</alf-file-view>
+```
+
+<img src="assets/images/file-view.png" width="300px">

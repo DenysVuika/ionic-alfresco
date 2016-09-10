@@ -16,7 +16,7 @@
     "node_modules/alfresco-js-api/dist/**/*.ts"
   ],
   "exclude": [
-    "build",
+    "build/**/*",
     "node_modules",
     "typings/global",
     "typings/global.d.ts"
