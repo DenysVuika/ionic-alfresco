@@ -6,7 +6,7 @@ import { NodeService } from '../../services/node.service';
 @Component({
   selector: 'alf-file-view',
   template: `
-    <div *ngIf="contentUrl && !textContent" [ngSwitch]="mimeType">
+    <div *ngIf="contentUrl && !hasTextContent" [ngSwitch]="mimeType">
       <div *ngSwitchCase="'video/mp4'">
         <video controls autoplay class="video-player">
           <source [src]="contentUrl" type="video/mp4">
@@ -22,12 +22,13 @@ import { NodeService } from '../../services/node.service';
         <img [src]="contentUrl">
       </div>
       <div *ngSwitchDefault>
-        <span>Unsupported file type: {{mimeType}}</span>
+        <h2 text-center>This document can't be previewed.</h2>
         <pre *ngIf="debug">{{node | json}}</pre>
       </div>
     </div>
-    <div *ngIf="textContent">
-      <pre>{{textContent}}</pre>
+    <div *ngIf="hasTextContent">
+      <h2 *ngIf="!textContent" text-center>Loading content...</h2>
+      <pre *ngIf="textContent">{{textContent}}</pre>
     </div>
   `
 })
@@ -42,6 +43,8 @@ export class FileViewComponent implements OnInit {
   node: MinimalNodeEntryEntity;
   mimeType: string;
   contentUrl: string;
+
+  hasTextContent: boolean = false;
   textContent: string;
 
   constructor(
@@ -58,6 +61,7 @@ export class FileViewComponent implements OnInit {
           this.mimeType = node.content.mimeType;
           this.contentUrl = this.nodeService.getContentUrl(this.nodeId);
           if (this.isTextFile(this.mimeType)) {
+            this.hasTextContent = true;
             this.loadTextContent(this.contentUrl);
           }
         }
@@ -69,6 +73,7 @@ export class FileViewComponent implements OnInit {
       'text/plain',
       'text/csv',
       'text/xml',
+      'text/html',
       'application/json',
       'application/x-javascript'
     ].indexOf(mimeType) > -1;
@@ -77,7 +82,7 @@ export class FileViewComponent implements OnInit {
   private loadTextContent(url: string) {
     this.http.get(url).subscribe(
       res => {
-        console.log(res);
+        // console.log(res);
         this.textContent = res.text();
       });
   }
