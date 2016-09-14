@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Http } from '@angular/http';
 import { MinimalNodeEntryEntity } from 'alfresco-js-api';
 import { NodeService } from '../../services/node.service';
+import { HightlightDirective } from '../../directives/highlight.directive';
 
 @Component({
   selector: 'alf-file-view',
@@ -28,9 +29,10 @@ import { NodeService } from '../../services/node.service';
     </div>
     <div *ngIf="hasTextContent">
       <h2 *ngIf="!textContent" text-center>Loading content...</h2>
-      <pre *ngIf="textContent">{{textContent}}</pre>
+      <pre *ngIf="textContent" no-margin><code highlight [class]="highlightClass">{{textContent}}</code></pre>
     </div>
-  `
+  `,
+  directives: [HightlightDirective]
 })
 export class FileViewComponent implements OnInit {
 
@@ -46,6 +48,7 @@ export class FileViewComponent implements OnInit {
 
   hasTextContent: boolean = false;
   textContent: string;
+  highlightClass: string = 'nohighlight';
 
   constructor(
     private nodeService: NodeService,
@@ -62,6 +65,7 @@ export class FileViewComponent implements OnInit {
           this.contentUrl = this.nodeService.getContentUrl(this.nodeId);
           if (this.isTextFile(this.mimeType)) {
             this.hasTextContent = true;
+            this.highlightClass = this.detectHighlightClass(this.mimeType);
             this.loadTextContent(this.contentUrl);
           }
         }
@@ -77,6 +81,14 @@ export class FileViewComponent implements OnInit {
       'application/json',
       'application/x-javascript'
     ].indexOf(mimeType) > -1;
+  }
+
+  private detectHighlightClass(mimeType: string): string {
+    if (mimeType === 'text/plain') {
+      return 'nohighlight';
+    }
+    // allow auto-detection
+    return null;
   }
 
   private loadTextContent(url: string) {
