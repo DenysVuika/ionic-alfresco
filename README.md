@@ -119,3 +119,18 @@ export class FileView {
 ```
 
 <img src="assets/images/file-view.png" width="300px">
+
+Supported content types:
+
+- video
+  - video/mp4
+- images
+  - image/png
+  - image/jpeg
+  - image/gif
+- text
+  - text/plain
+  - text/csv
+  - text/xml
+  - application/json
+  - application/x-javascript
