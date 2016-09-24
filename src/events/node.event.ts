@@ -1,9 +1,9 @@
-import { MinimalNodeEntryEntity } from 'alfresco-js-api';
+import { MinimalNode } from 'alfresco-js-api';
 import { CoreEvent } from './core.event';
 
-export class NodeEvent extends CoreEvent<MinimalNodeEntryEntity> {
+export class NodeEvent extends CoreEvent<MinimalNode> {
 
-  constructor(node: MinimalNodeEntryEntity) {
+  constructor(node: MinimalNode) {
     super(node);
   }
 

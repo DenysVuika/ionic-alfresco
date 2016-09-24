@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
-import { NodePaging, MinimalNodeEntryEntity } from 'alfresco-js-api';
+import {
+  NodePaging,
+  MinimalNodeEntryEntity,
+  DeletedNodesPaging,
+  MinimalNode,
+  MinimalNodeEntity,
+  DeletedNodeEntity
+} from 'alfresco-js-api';
 
 import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
@@ -44,7 +51,7 @@ export class NodeService {
               private auth: AuthService) {
   }
 
-  getNodeThumbnailUrl(node: MinimalNodeEntryEntity): string {
+  getNodeThumbnailUrl(node: MinimalNode): string {
     if (node.isFolder) {
       return `${this.baseImagePath}/ft_ic_folder.svg`;
     }
@@ -87,12 +94,37 @@ export class NodeService {
     return api.content.getContentUrl(nodeId);
   }
 
-  isImage(node: MinimalNodeEntryEntity): boolean {
+  isImage(node: MinimalNode): boolean {
     if (node && node.isFile && node.content) {
       let mimeType = node.content.mimeType;
       return ['image/png', 'image/jpeg', 'image/gif'].indexOf(mimeType) > -1;
     }
     return false;
+  }
+
+  deleteNode(nodeId: string): Promise<any> {
+    let api = this.api.getInstance();
+    return api.nodes.deleteNode(nodeId);
+  }
+
+  getDeletedNodes(): Promise<DeletedNodesPaging> {
+    let api = this.api.getInstance();
+    return api.nodes.getDeletedNodes({});
+  }
+
+  getDeletedNode(nodeId: string): Promise<DeletedNodeEntity> {
+    let api = this.api.getInstance();
+    return api.nodes.getDeletedNode(nodeId, {});
+  }
+
+  purgeDeletedNode(nodeId: string): Promise<any> {
+    let api = this.api.getInstance();
+    return api.nodes.purgeDeletedNode(nodeId);
+  }
+
+  restoreNode(nodeId: string): Promise<MinimalNodeEntity> {
+    let api = this.api.getInstance();
+    return api.nodes.restoreNode(nodeId);
   }
 
 }
