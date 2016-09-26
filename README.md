@@ -17,6 +17,10 @@ Use the following command to install all required dependencies:
 npm install ionic-alfresco alfresco-js-api --save
 ```
 
+# Demo Project
+
+You can find demo project template showcasing all features here: [Alfresco Ionic 2 App Base](https://github.com/DenisVuyka/ionic-alfresco-app).
+
 # Basic example
 
 *For the sake of simplicity only important content provided in the examples below:*
