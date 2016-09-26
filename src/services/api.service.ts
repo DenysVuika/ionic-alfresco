@@ -15,8 +15,20 @@ export class ApiService {
         hostEcm: this.settings.getEcmHost(),
         hostBpm: this.settings.getBpmHost()
       };
+
       this._instance = new AlfrescoApi(config as AlfrescoApiConfig);
+
+      // TODO: temp hack for csrf token problem (0.3.4)
+      let bpmAuth: any = this._instance.bpmAuth;
+      let bpmClient = Object.getPrototypeOf(Object.getPrototypeOf(bpmAuth)) || {};
+      bpmClient.setCsrfToken = function() {};
+
+      // TODO: temp hack for csrf token problem (0.3.4)
+      let ecmAuth: any = this._instance.ecmAuth;
+      let ecmClient = Object.getPrototypeOf(Object.getPrototypeOf(ecmAuth)) || {};
+      ecmClient.setCsrfToken = function() {};
     }
+
     return this._instance;
   }
 
