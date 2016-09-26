@@ -17,6 +17,10 @@ Use the following command to install all required dependencies:
 npm install ionic-alfresco alfresco-js-api --save
 ```
 
+# Demo Project
+
+You can find demo project template showcasing all features here: [Alfresco Ionic 2 App Base](https://github.com/DenisVuyka/ionic-alfresco-app).
+
 # Basic example
 
 *For the sake of simplicity only important content provided in the examples below:*
@@ -61,6 +65,7 @@ export class FileView {
 - **LoginComponent**, login component
 - **FolderViewComponent**, folder viewer component (Document List)
 - **FileViewComponent**, file viewer component
+- **TrashcanViewComponent**, trashcan viewer component
 
 ## Services
 
@@ -134,3 +139,19 @@ Supported content types:
   - text/xml
   - application/json
   - application/x-javascript
+
+## Trashcan View
+
+```html
+<alf-trashcan-view></alf-trashcan-view>
+```
+
+Supported actions:
+
+- purge node
+- restore node (file, folder)
+
+<div>
+  <img src="assets/images/trashcan-sliding.png" width="300px">
+  <img src="assets/images/trashcan-actions.png" width="300px">
+</div>
